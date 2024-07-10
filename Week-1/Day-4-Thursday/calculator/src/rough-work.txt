@@ -1,0 +1,23 @@
+fn main() {
+    let mut counter = 0;
+
+    while counter < 5 {
+        println!("Counter is: {}", counter);
+        counter += 1;
+    }
+}
+
+
+
+
+// Attempt to parse input into f64
+            match num1_input.trim().parse::<f64>() {
+                Ok(num) => {
+                    num1 = num;
+                    break; // Break out of the loop if parsing is successful
+                }
+                Err(_) => {
+                    println!("Please input a valid number!");
+                    continue; // Continue loop to prompt again
+                }
+            }
