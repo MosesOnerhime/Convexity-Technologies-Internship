@@ -1,0 +1,15 @@
+C:\Users\moses\source\repos\Convexity Technologies Internship\Week-1-Day-3\csharp\bin\Debug\net8.0\csharp.exe
+C:\Users\moses\source\repos\Convexity Technologies Internship\Week-1-Day-3\csharp\bin\Debug\net8.0\csharp.deps.json
+C:\Users\moses\source\repos\Convexity Technologies Internship\Week-1-Day-3\csharp\bin\Debug\net8.0\csharp.runtimeconfig.json
+C:\Users\moses\source\repos\Convexity Technologies Internship\Week-1-Day-3\csharp\bin\Debug\net8.0\csharp.dll
+C:\Users\moses\source\repos\Convexity Technologies Internship\Week-1-Day-3\csharp\bin\Debug\net8.0\csharp.pdb
+C:\Users\moses\source\repos\Convexity Technologies Internship\Week-1-Day-3\csharp\obj\Debug\net8.0\csharp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\moses\source\repos\Convexity Technologies Internship\Week-1-Day-3\csharp\obj\Debug\net8.0\csharp.AssemblyInfoInputs.cache
+C:\Users\moses\source\repos\Convexity Technologies Internship\Week-1-Day-3\csharp\obj\Debug\net8.0\csharp.AssemblyInfo.cs
+C:\Users\moses\source\repos\Convexity Technologies Internship\Week-1-Day-3\csharp\obj\Debug\net8.0\csharp.csproj.CoreCompileInputs.cache
+C:\Users\moses\source\repos\Convexity Technologies Internship\Week-1-Day-3\csharp\obj\Debug\net8.0\csharp.sourcelink.json
+C:\Users\moses\source\repos\Convexity Technologies Internship\Week-1-Day-3\csharp\obj\Debug\net8.0\csharp.dll
+C:\Users\moses\source\repos\Convexity Technologies Internship\Week-1-Day-3\csharp\obj\Debug\net8.0\refint\csharp.dll
+C:\Users\moses\source\repos\Convexity Technologies Internship\Week-1-Day-3\csharp\obj\Debug\net8.0\csharp.pdb
+C:\Users\moses\source\repos\Convexity Technologies Internship\Week-1-Day-3\csharp\obj\Debug\net8.0\csharp.genruntimeconfig.cache
+C:\Users\moses\source\repos\Convexity Technologies Internship\Week-1-Day-3\csharp\obj\Debug\net8.0\ref\csharp.dll

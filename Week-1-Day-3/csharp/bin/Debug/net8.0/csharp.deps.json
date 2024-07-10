@@ -6,15 +6,15 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "Week-1-Day-3/1.0.0": {
+      "csharp/1.0.0": {
         "runtime": {
-          "Week-1-Day-3.dll": {}
+          "csharp.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "Week-1-Day-3/1.0.0": {
+    "csharp/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
