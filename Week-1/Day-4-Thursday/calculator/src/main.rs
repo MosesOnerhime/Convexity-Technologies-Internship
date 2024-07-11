@@ -88,8 +88,15 @@ fn main() {
             // Trim and parse the input
             match num2_input.trim().parse::<f64>() {
                 Ok(num) => {
-                    num2 = num;
-                    break;
+                    // Check if input is zero (Number cannot be divided by zero)
+                    if choice == 4 && num == 0.0 {
+                        println!("\nSorry, number can not be divided by zero!");
+                        continue;
+                    }
+                    else {
+                        num2 = num;
+                        break;
+                    }
                     }
                 
                 Err(_) => {
