@@ -96,6 +96,7 @@ fn main() {
                     else {
                         num2 = num;
                         break;
+                        
                     }
                     }
                 
