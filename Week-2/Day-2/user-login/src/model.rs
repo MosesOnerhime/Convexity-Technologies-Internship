@@ -49,10 +49,6 @@ impl UserManager {
     pub fn get_users(&self) -> &Vec<User> {
         &self.users
     }
-
-    pub fn get_user_by_id(&self, id: u32) -> Option<&User> {
-        self.users.iter().find(|&t| t.id == id)
-    }
     
     pub fn get_user_by_name(&self, name: &str) -> Option<&User> {
         self.users.iter().find(|&t| t.name == name)
