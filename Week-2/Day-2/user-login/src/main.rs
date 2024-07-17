@@ -117,15 +117,15 @@ fn main() {
     let controller = UserController::new(user_manager);
     let mut program = Program::new(controller);
 
-    program.controller.add_user("Moses Onerhime");
-    program.controller.add_user("Micheal Dowan");
+    //program.controller.add_user("Moses Onerhime");
+    //program.controller.add_user("Micheal Dowan");
 
-    program.controller.list_users();
+    //program.controller.list_users();
 
     // program.controller.valid_user("Moses Onerhime");
-    program.controller.valid_user("Micheal Dowan");
+    //program.controller.valid_user("Micheal Dowan");
 
-    program.controller.list_users();
+    //program.controller.list_users();
 
     program.run();
     UserView::display_message("\nEnd of program.")
