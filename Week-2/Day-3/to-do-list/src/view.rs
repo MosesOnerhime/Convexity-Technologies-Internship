@@ -1,4 +1,3 @@
-// view.rs
 pub struct TaskView;
 
 impl TaskView {

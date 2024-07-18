@@ -1,4 +1,3 @@
-// main.rs
 mod model;
 mod view;
 mod controller;
@@ -34,18 +33,18 @@ fn main() {
                         Err(err) => TaskView::display_message(&err),
                     }
                 } else {
-                    TaskView::display_message("Invalid task ID.");
+                    TaskView::display_message("Invalid ID.");
                 }
             }
             "3" => {
                 task_controller.list_tasks();
             }
             "4" => {
-                TaskView::display_message("Exiting the application.");
+                TaskView::display_message("Exiting...");
                 break;
             }
             _ => {
-                TaskView::display_message("Invalid choice. Please choose again.");
+                TaskView::display_message("Invalid choice. Please enter a number between 1 - 4.");
             }
         }
     }
