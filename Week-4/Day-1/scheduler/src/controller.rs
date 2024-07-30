@@ -46,9 +46,9 @@ impl ConferenceController {
         Ok(())
     }
 
-    pub fn list_sessions(&self) {
+    /*pub fn list_sessions(&self) {
         for session in &self.conference.sessions {
             println!("{:?}", session);
         }
-    }
+    }*/
 }
