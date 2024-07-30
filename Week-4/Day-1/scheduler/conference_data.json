@@ -1,0 +1,1 @@
+{"name":"test","sessions":[{"id":1,"title":"test","speaker":"moses","start_time":"2024-07-30T09:01:01.403203300Z","end_time":"2024-07-30T10:01:01.403243300Z","attendees":["grace","bob"]},{"id":2,"title":"test2","speaker":"john","start_time":"2024-07-30T09:01:27.789109600Z","end_time":"2024-07-30T10:01:27.789112200Z","attendees":[]}]}

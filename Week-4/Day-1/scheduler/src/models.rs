@@ -1,7 +1,7 @@
-
 use chrono::{DateTime, Utc};
+use serde::{Serialize, Deserialize};
 
-#[derive(Debug)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct Session {
     pub id: u32,
     pub title: String,
@@ -28,7 +28,7 @@ impl Session {
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct Conference {
     pub name: String,
     pub sessions: Vec<Session>,
