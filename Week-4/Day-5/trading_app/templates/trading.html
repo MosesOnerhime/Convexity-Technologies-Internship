@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trading</title>
+    <script>
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('login') === 'success') {
+                alert('Login successful!');
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Welcome, {{ username }}</h1>
+    <p>You are now logged in and can start trading.</p>
+    <h1>Trading</h1>
+    <form action="/trade" method="post">
+        <label for="symbol">Symbol:</label>
+        <input type="text" id="symbol" name="symbol" required>
+        <br>
+        <button type="submit">Get Price</button>
+    </form>
+    <div>
+        {% if price %}
+        <p>Price: ${{ price }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
