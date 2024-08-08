@@ -30,7 +30,9 @@ async fn main() -> std::io::Result<()> {
             .route("/create_user", web::get().to(controllers::create_user_form))
             .route("/create_user_process", web::post().to(controllers::create_user_process))
             .route("/trading", web::get().to(controllers::trading_form))
-            .route("/trade", web::post().to(controllers::trade_process))           
+            .route("/trade", web::post().to(controllers::trade_process))
+            .route("/order_history", web::get().to(controllers::order_history))
+           
     })
     .bind("127.0.0.1:8081")?
     .run()

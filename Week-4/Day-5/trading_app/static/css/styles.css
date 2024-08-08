@@ -1,3 +1,4 @@
+/* static/css/styles.css */
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
@@ -13,8 +14,9 @@ body {
     padding: 2em;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    display: inline-block; 
     text-align: center;
+    box-sizing: border-box; 
 }
 
 h1 {
@@ -70,4 +72,65 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+.order-history-table {
+    width: auto;
+    border-collapse: collapse;
+    margin-top: 1em;
+    overflow-x: auto;
+    display: block;
+}
+
+.order-history-table th, .order-history-table td {
+    padding: 0.75em;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.order-history-table th {
+    background-color: #007BFF;
+    color: white;
+    font-weight: bold;
+}
+
+.order-history-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.order-history-table tr:hover {
+    background-color: #ddd;
+}
+
+.order-history-table td {
+    text-align: center;
+}
+
+.back-link {
+    display: inline-block;
+    padding: 0.4em 0.5em;
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 1em;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: #0056b3;
+}
+
+.back-link-small {
+    display: inline-block;
+    padding: 0.4em 0.5em;
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.65em;
+    margin-top: 0.8em;
+    transition: color 0.3s ease;
+}
+
+.back-link-small:hover {
+    color: #0056b3;
 }

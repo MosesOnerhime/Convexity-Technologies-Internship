@@ -20,6 +20,8 @@ pub struct CreateUserForm {
 #[derive(Debug, Deserialize)]
 pub struct TradeForm {
     pub symbol: String,
+    pub order_type: String,  // "buy" or "sell"
+    pub quantity: u32,
 }
 
 pub async fn login_form(tera: web::Data<Tera>) -> impl Responder {
@@ -85,15 +87,15 @@ pub async fn trading_form(id: Identity, tera: web::Data<Tera>) -> impl Responder
 pub async fn trade_process(
     form: web::Form<TradeForm>, 
     tera: web::Data<Tera>,
-    id: Identity
+    id: Identity,
+    db_pool: web::Data<DbPool>,
 ) -> impl Responder {
     if let Some(username) = id.identity() {
-        // Call the Alpha Vantage API to get market data
+        // calling the Alphavantage API
         let api_key = "HX7K0WCKTZZ1KEJY";
         let url = format!("https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol={}&interval=1min&apikey={}", form.symbol, api_key);
         let response = reqwest::get(&url).await.unwrap().json::<serde_json::Value>().await.unwrap();
 
-        // Check if the response contains valid data
         let price_result = response["Time Series (1min)"]
             .as_object()
             .and_then(|data| data.values().next())
@@ -107,7 +109,20 @@ pub async fn trade_process(
 
         match price_result {
             Some(price) => {
+                // placing the order
+                let total_value = price * form.quantity as f64;
+                let order_type = &form.order_type; // or "sell", depending on the form input
+                let quantity = form.quantity; // or any quantity based on the form input
+
+                // Save the order to the database
+                db_pool.save_order(&username, &form.symbol.to_uppercase(), order_type, quantity as i32, price).unwrap();
+
                 context.insert("price", &price);
+                context.insert("order_type", &form.order_type);
+                context.insert("quantity", &form.quantity);
+                context.insert("total_value", &total_value);
+
+                
             },
             None => {
                 context.insert("error", "Symbol not found!");
@@ -115,8 +130,27 @@ pub async fn trade_process(
         }
 
         let s = tera.render("trading.html", &context).unwrap();
+        return HttpResponse::Ok().content_type("text/html").body(s)
+    } else {
+        return HttpResponse::Unauthorized().body("Please log in to perform trading")
+    }
+}
+
+pub async fn order_history(
+    id: Identity,
+    tera: web::Data<Tera>,
+    db_pool: web::Data<DbPool>
+) -> impl Responder {
+    if let Some(username) = id.identity() {
+        let orders = db_pool.get_order_history(&username).unwrap();
+        
+        let mut context = Context::new();
+        context.insert("username", &username);
+        context.insert("orders", &orders);
+
+        let s = tera.render("order_history.html", &context).unwrap();
         HttpResponse::Ok().content_type("text/html").body(s)
     } else {
-        HttpResponse::Unauthorized().body("Please log in to perform trading")
+        HttpResponse::Unauthorized().body("Please log in to view your order history")
     }
 }

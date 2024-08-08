@@ -2,10 +2,20 @@
 use mysql::*;
 use mysql::prelude::*;
 use bcrypt::{hash, verify};
+use serde::Serialize;
 
 #[derive(Clone)]
 pub struct DbPool {
     pool: Pool,
+}
+
+#[derive(Debug, Serialize)]
+pub struct Order {
+    pub symbol: String,
+    pub order_type: String,
+    pub quantity: i32,
+    pub price: f64,
+    pub created_at: chrono::NaiveDateTime,
 }
 
 impl DbPool {
@@ -46,4 +56,41 @@ impl DbPool {
             Ok(false)
         }
     }
+
+    // save a new order in the database
+    pub fn save_order(&self, username: &str, symbol: &str, order_type: &str, quantity: i32, price: f64) -> Result<()> {
+        let mut conn = self.get_conn()?;
+        conn.exec_drop(
+            r"INSERT INTO orders (username, symbol, order_type, quantity, price) VALUES (:username, :symbol, :order_type, :quantity, :price)",
+            params! {
+                "username" => username,
+                "symbol" => symbol,
+                "order_type" => order_type,
+                "quantity" => quantity,
+                "price" => price,
+            }
+        )?;
+        Ok(())
+    }
+
+    // Get the order history for a user
+    pub fn get_order_history(&self, username: &str) -> Result<Vec<Order>> {
+        let mut conn = self.get_conn()?;
+        let result: Vec<Order> = conn.exec_map(
+            r"SELECT symbol, order_type, quantity, price, created_at FROM orders WHERE username = :username ORDER BY created_at DESC",
+            params! {
+                "username" => username,
+            },
+            |(symbol, order_type, quantity, price, created_at)| Order {
+                symbol,
+                order_type,
+                quantity,
+                price,
+                created_at,
+            }
+        )?;
+        Ok(result)
+    }
 }
+
+

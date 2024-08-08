@@ -1,3 +1,4 @@
+<!-- templates/trading.html -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,16 +20,35 @@
         <form action="/trade" method="post">
             <label for="symbol">Symbol:</label>
             <input type="text" id="symbol" name="symbol" required>
-            <button type="submit">Get Price</button>
+            
+            <label for="order_type">Order Type:</label>
+            <select id="order_type" name="order_type" required>
+                <option value="buy">Buy</option>
+                <option value="sell">Sell</option>
+            </select>
+            
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1" required>
+            
+            <button type="submit">Place Order</button>
         </form>
         
         <div>
             {% if error %}
             <p style="color: red;">{{ error }}</p>
             {% elif price %}
-            <p>Price: ${{ price }}</p>
+            <p>Order Type: {{ order_type }}</p>
+            <p>Quantity: {{ quantity }}</p>
+            <p>Price per Share: ${{ price }}</p>
+            <p>Total Value: ${{ total_value }}</p>
             {% endif %}
         </div>
+        
+        <a href="/order_history" class="back-link">View Order History</a>
+        <p>
+            <a href="/" class="back-link-small">Back to Login</a>
+        </p>
+
     </div>
 </body>
 </html>

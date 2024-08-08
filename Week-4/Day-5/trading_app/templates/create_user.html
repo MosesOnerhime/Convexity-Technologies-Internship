@@ -1,3 +1,4 @@
+<!-- templates/create_user.html -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,14 +18,14 @@
         <h1>Create Account</h1>
         <form action="/create_user_process" method="post">
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username">
+            <input type="text" id="username" name="username" required>
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password">
+            <input type="password" id="password" name="password" required>
             <button type="submit">Create</button>
         </form>
         <p>
             Already have an account? 
-            <a href="/">Login</a>.
+            <a href="/" class="back-link">Login</a>
         </p>
     </div>
 </body>
