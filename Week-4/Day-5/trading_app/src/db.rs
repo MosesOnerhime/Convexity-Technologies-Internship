@@ -73,7 +73,7 @@ impl DbPool {
         Ok(())
     }
 
-    // Get the order history for a user
+    // get the order history for a user
     pub fn get_order_history(&self, username: &str) -> Result<Vec<Order>> {
         let mut conn = self.get_conn()?;
         let result: Vec<Order> = conn.exec_map(

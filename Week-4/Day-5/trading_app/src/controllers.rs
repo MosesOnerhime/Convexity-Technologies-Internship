@@ -111,8 +111,8 @@ pub async fn trade_process(
             Some(price) => {
                 // placing the order
                 let total_value = price * form.quantity as f64;
-                let order_type = &form.order_type; // or "sell", depending on the form input
-                let quantity = form.quantity; // or any quantity based on the form input
+                let order_type = &form.order_type;
+                let quantity = form.quantity;
 
                 // Save the order to the database
                 db_pool.save_order(&username, &form.symbol.to_uppercase(), order_type, quantity as i32, price).unwrap();

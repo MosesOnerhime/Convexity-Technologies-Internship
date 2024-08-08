@@ -18,7 +18,7 @@ async fn main() -> std::io::Result<()> {
         App::new()
             .app_data(web::Data::new(tera.clone()))
             .app_data(web::Data::new(db_pool.clone()))
-            .wrap(CookieSession::signed(&[0; 32]).secure(false)) // Use a real key in production
+            .wrap(CookieSession::signed(&[0; 32]).secure(false))
             .wrap(IdentityService::new(
                 CookieIdentityPolicy::new(&[0; 32])
                     .name("auth-cookie")
