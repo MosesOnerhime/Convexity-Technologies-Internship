@@ -7,24 +7,24 @@
         window.onload = function() {
             const urlParams = new URLSearchParams(window.location.search);
             if (urlParams.get('login') === 'failed') {
-                alert('Invalid credentials!');
+                alert('Failed to create user.');
             }
         }
     </script>
 </head>
 <body>
     <div class="container">
-        <h1>Login</h1>
-        <form action="/login" method="post">
+        <h1>Create Account</h1>
+        <form action="/create_user_process" method="post">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username">
             <label for="password">Password:</label>
             <input type="password" id="password" name="password">
-            <button type="submit">Login</button>
+            <button type="submit">Create</button>
         </form>
         <p>
-            Don't have an account? 
-            <a href="/create_user">Create one</a>.
+            Already have an account? 
+            <a href="/">Login</a>.
         </p>
     </div>
 </body>

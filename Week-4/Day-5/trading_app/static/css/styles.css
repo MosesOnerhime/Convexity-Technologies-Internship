@@ -14,6 +14,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 300px;
+    text-align: center;
 }
 
 h1 {
@@ -21,14 +22,20 @@ h1 {
     margin-bottom: 1em;
 }
 
-label, input {
+form {
+    margin-top: 1em;
+}
+
+label {
     display: block;
-    width: 100%;
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
+    text-align: left;
 }
 
 input {
+    width: calc(100% - 1em);
     padding: 0.5em;
+    margin-bottom: 1em;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
@@ -45,4 +52,22 @@ button {
 
 button:hover {
     background-color: #0056b3;
+}
+
+p {
+    margin: 0.5em 0;
+}
+
+p {
+    margin-top: 1em;
+    text-align: center;
+}
+
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }

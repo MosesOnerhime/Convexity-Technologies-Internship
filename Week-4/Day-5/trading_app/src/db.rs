@@ -1,3 +1,4 @@
+// src/db.rs
 use mysql::*;
 use mysql::prelude::*;
 use bcrypt::{hash, verify};
