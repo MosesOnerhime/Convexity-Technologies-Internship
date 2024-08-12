@@ -15,6 +15,7 @@ pub struct Order {
     pub order_type: String,
     pub quantity: i32,
     pub price: f64,
+    pub total: f64,
     pub created_at: chrono::NaiveDateTime,
 }
 
@@ -41,6 +42,31 @@ impl DbPool {
         Ok(())
     }
 
+    // Method to get user's current balance
+    pub fn get_balance(&self, username: &str) -> Result<f64> {
+        let mut conn = self.get_conn()?;
+        let balance: f64 = conn.exec_first(
+            r"SELECT account_balance FROM users WHERE username = :username",
+            params! {
+                "username" => username,
+            }
+        )?.unwrap_or(0.0); // Return 0.0 if user not found
+        Ok(balance)
+    }
+
+    // Method to update user's balance after a trade
+    pub fn update_balance(&self, username: &str, new_balance: f64) -> Result<()> {
+        let mut conn = self.get_conn()?;
+        conn.exec_drop(
+            r"UPDATE users SET account_balance = :new_balance WHERE username = :username",
+            params! {
+                "username" => username,
+                "new_balance" => new_balance,
+            }
+        )?;
+        Ok(())
+    }
+
     pub fn verify_user(&self, username: &str, password: &str) -> Result<bool> {
         let mut conn = self.get_conn()?;
         let result: Option<String> = conn.exec_first(
@@ -59,38 +85,42 @@ impl DbPool {
 
     // save a new order in the database
     pub fn save_order(&self, username: &str, symbol: &str, order_type: &str, quantity: i32, price: f64) -> Result<()> {
+        let total = price * quantity as f64; // Calculate total price
         let mut conn = self.get_conn()?;
         conn.exec_drop(
-            r"INSERT INTO orders (username, symbol, order_type, quantity, price) VALUES (:username, :symbol, :order_type, :quantity, :price)",
+            r"INSERT INTO orders (username, symbol, order_type, quantity, price, total) VALUES (:username, :symbol, :order_type, :quantity, :price, :total)",
             params! {
                 "username" => username,
                 "symbol" => symbol,
                 "order_type" => order_type,
                 "quantity" => quantity,
                 "price" => price,
+                "total" => total,
             }
         )?;
         Ok(())
     }
+    
 
     // get the order history for a user
     pub fn get_order_history(&self, username: &str) -> Result<Vec<Order>> {
         let mut conn = self.get_conn()?;
         let result: Vec<Order> = conn.exec_map(
-            r"SELECT symbol, order_type, quantity, price, created_at FROM orders WHERE username = :username ORDER BY created_at DESC",
+            r"SELECT symbol, order_type, quantity, price, total, created_at FROM orders WHERE username = :username ORDER BY created_at DESC",
             params! {
                 "username" => username,
             },
-            |(symbol, order_type, quantity, price, created_at)| Order {
+            |(symbol, order_type, quantity, price, total, created_at)| Order {
                 symbol,
                 order_type,
                 quantity,
                 price,
+                total, // Populate the total field
                 created_at,
             }
         )?;
         Ok(result)
-    }
+    }    
 }
 
 

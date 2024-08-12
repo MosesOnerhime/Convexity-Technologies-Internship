@@ -1,4 +1,3 @@
-// src/main.rs
 mod controllers;
 mod db;
 
@@ -32,7 +31,7 @@ async fn main() -> std::io::Result<()> {
             .route("/trading", web::get().to(controllers::trading_form))
             .route("/trade", web::post().to(controllers::trade_process))
             .route("/order_history", web::get().to(controllers::order_history))
-           
+            .route("/check_balance", web::get().to(controllers::check_balance))  // New route for checking balance
     })
     .bind("127.0.0.1:8081")?
     .run()
