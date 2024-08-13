@@ -24,6 +24,20 @@ pub struct TradeForm {
     pub quantity: u32,
 }
 
+#[derive(Debug, Deserialize)]
+pub struct PlaceBuyOrderForm {
+    pub symbol: String,
+    pub quantity: u32,
+    pub max_price: f64,
+}
+
+#[derive(Debug, Deserialize)]
+pub struct PlaceSellOrderForm {
+    pub symbol: String,
+    pub quantity: u32,
+    pub min_price: f64,
+}
+
 pub async fn login_form(tera: web::Data<Tera>) -> impl Responder {
     let s = tera.render("login.html", &Context::new()).unwrap();
     HttpResponse::Ok().content_type("text/html").body(s)
@@ -204,5 +218,35 @@ pub async fn check_balance(
         HttpResponse::Ok().body(format!("Your balance is: ${:.2}", balance))
     } else {
         HttpResponse::Unauthorized().body("Please log in to check your balance")
+    }
+}
+
+pub async fn place_buy_order(
+    form: web::Form<PlaceBuyOrderForm>,
+    id: Identity,
+    db_pool: web::Data<DbPool>,
+) -> impl Responder {
+    if let Some(username) = id.identity() {
+        let _ = db_pool.place_buy_order(&username, &form.symbol, form.quantity as i32, form.max_price);
+        // Trigger order matching
+        let _ = db_pool.match_orders();
+        HttpResponse::Found().append_header(("Location", "/trading")).finish()
+    } else {
+        HttpResponse::Unauthorized().body("Please log in to place an order")
+    }
+}
+
+pub async fn place_sell_order(
+    form: web::Form<PlaceSellOrderForm>,
+    id: Identity,
+    db_pool: web::Data<DbPool>,
+) -> impl Responder {
+    if let Some(username) = id.identity() {
+        let _ = db_pool.place_sell_order(&username, &form.symbol, form.quantity as i32, form.min_price);
+        // Trigger order matching
+        let _ = db_pool.match_orders();
+        HttpResponse::Found().append_header(("Location", "/trading")).finish()
+    } else {
+        HttpResponse::Unauthorized().body("Please log in to place an order")
     }
 }

@@ -115,12 +115,123 @@ impl DbPool {
                 order_type,
                 quantity,
                 price,
-                total, // Populate the total field
+                total, 
                 created_at,
             }
         )?;
         Ok(result)
-    }    
+    }
+    
+    // Place a buy order
+    pub fn place_buy_order(&self, username: &str, symbol: &str, quantity: i32, max_price: f64) -> Result<()> {
+        let mut conn = self.get_conn()?;
+        conn.exec_drop(
+            r"INSERT INTO buyers (username, symbol, quantity, max_price) VALUES (:username, :symbol, :quantity, :max_price)",
+            params! {
+                "username" => username,
+                "symbol" => symbol,
+                "quantity" => quantity,
+                "max_price" => max_price,
+            }
+        )?;
+        Ok(())
+    }
+
+    // Place a sell order
+    pub fn place_sell_order(&self, username: &str, symbol: &str, quantity: i32, min_price: f64) -> Result<()> {
+        let mut conn = self.get_conn()?;
+        conn.exec_drop(
+            r"INSERT INTO sellers (username, symbol, quantity, min_price) VALUES (:username, :symbol, :quantity, :min_price)",
+            params! {
+                "username" => username,
+                "symbol" => symbol,
+                "quantity" => quantity,
+                "min_price" => min_price,
+            }
+        )?;
+        Ok(())
+    }
+
+    pub fn match_orders(&self) -> Result<()> {
+        let mut conn = self.get_conn()?;
+        // Find matching sell orders for each buy order
+        let buy_orders: Vec<(i32, String, String, i32, f64)> = conn.exec_map(
+            r"SELECT id, username, symbol, quantity, max_price FROM buyers",
+            (),
+            |(id, username, symbol, quantity, max_price)| (id, username, symbol, quantity, max_price)
+        )?;
+
+        for (buy_id, buyer_username, symbol, mut buy_quantity, max_price) in buy_orders {
+            let sell_orders: Vec<(i32, String, String, i32, f64)> = conn.exec_map(
+                r"SELECT id, username, symbol, quantity, min_price FROM sellers WHERE symbol = :symbol AND min_price <= :max_price",
+                params! {
+                    "symbol" => &symbol,
+                    "max_price" => max_price,
+                },
+                |(id, seller_username, symbol, quantity, min_price)| (id, seller_username, symbol, quantity, min_price)
+            )?;
+
+            // Process each matching sell order
+            for (sell_id, seller_username, _symbol, sell_quantity, _min_price) in sell_orders {
+                let trade_quantity = std::cmp::min(buy_quantity, sell_quantity);
+                let trade_price = _min_price;
+
+                // Execute trade
+                conn.exec_drop(
+                    r"INSERT INTO trade_orders (buyer_username, seller_username, symbol, quantity, price) VALUES (:buyer_username, :seller_username, :symbol, :quantity, :price)",
+                    params! {
+                        "buyer_username" => buyer_username.clone(),
+                        "seller_username" => seller_username.clone(),
+                        "symbol" => symbol.clone(),
+                        "quantity" => trade_quantity,
+                        "price" => trade_price,
+                    }
+                )?;
+
+                // Update order quantities
+                conn.exec_drop(
+                    r"UPDATE buyers SET quantity = quantity - :quantity WHERE id = :id",
+                    params! {
+                        "quantity" => trade_quantity,
+                        "id" => buy_id,
+                    }
+                )?;
+
+                conn.exec_drop(
+                    r"UPDATE sellers SET quantity = quantity - :quantity WHERE id = :id",
+                    params! {
+                        "quantity" => trade_quantity,
+                        "id" => sell_id,
+                    }
+                )?;
+
+                // Check if buyer's or seller's order is fully fulfilled and remove it if so
+                conn.exec_drop(
+                    r"DELETE FROM buyers WHERE id = :id AND quantity <= 0",
+                    params! {
+                        "id" => buy_id,
+                    }
+                )?;
+
+                conn.exec_drop(
+                    r"DELETE FROM sellers WHERE id = :id AND quantity <= 0",
+                    params! {
+                        "id" => sell_id,
+                    }
+                )?;
+
+                // Adjust remaining quantities
+                buy_quantity -= trade_quantity;
+                if buy_quantity <= 0 {
+                    break;
+                }
+            }
+        }
+
+        Ok(())
+    }
+
+
 }
 
 

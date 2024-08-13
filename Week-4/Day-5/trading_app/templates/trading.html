@@ -53,6 +53,23 @@
                 
                 <button type="submit">Place Order</button>
             </form>
+
+            <!-- Buy Order Form -->
+            <form action="/place_buy_order" method="post">
+                <input type="text" name="symbol" placeholder="Stock Symbol" required />
+                <input type="number" name="quantity" placeholder="Quantity" required />
+                <input type="number" name="max_price" step="0.01" placeholder="Max Price" required />
+                <button type="submit">Place Buy Order</button>
+            </form>
+
+            <!-- Sell Order Form -->
+            <form action="/place_sell_order" method="post">
+                <input type="text" name="symbol" placeholder="Stock Symbol" required />
+                <input type="number" name="quantity" placeholder="Quantity" required />
+                <input type="number" name="min_price" step="0.01" placeholder="Min Price" required />
+                <button type="submit">Place Sell Order</button>
+            </form>
+
             
             <div>
                 {% if error %}
