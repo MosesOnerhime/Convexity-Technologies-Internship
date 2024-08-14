@@ -31,7 +31,7 @@ async fn main() -> std::io::Result<()> {
             .route("/create_user_process", web::post().to(controllers::create_user_process))
             .route("/trading", web::get().to(controllers::trading_form))
             .route("/trade", web::post().to(controllers::trade_process))
-            .route("/order_history", web::get().to(controllers::order_history))
+            //.route("/order_history", web::get().to(controllers::order_history))
             .route("/check_balance", web::get().to(controllers::check_balance))  // New route for checking balance
     })
     .bind("127.0.0.1:8081")?

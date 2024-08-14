@@ -89,6 +89,11 @@ pub async fn trading_form(id: Identity, tera: web::Data<Tera>, db_pool: web::Dat
         };
         context.insert("new_balance", &current_balance);
         context.insert("username", &username);
+
+        // Fetch the order history
+        let orders = db_pool.get_order_history(&username).unwrap();
+        context.insert("orders", &orders);
+
         let s = tera.render("trading.html", &context).unwrap();
         HttpResponse::Ok().content_type("text/html").body(s)
     } else {
@@ -205,7 +210,7 @@ pub async fn trade_process(
     }
 }
 
-
+/*
 pub async fn order_history(
     id: Identity,
     tera: web::Data<Tera>,
@@ -223,7 +228,7 @@ pub async fn order_history(
     } else {
         HttpResponse::Unauthorized().body("Please log in to view your order history")
     }
-}
+} */
 
 pub async fn check_balance(
     id: Identity,
