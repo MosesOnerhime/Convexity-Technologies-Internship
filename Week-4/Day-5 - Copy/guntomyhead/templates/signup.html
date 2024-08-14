@@ -1,26 +1,31 @@
-<!-- templates/create_user.html -->
 <!DOCTYPE html>
-<html>
-<head lang="en">
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="/static/styles.css">
     <script>
         window.onload = function() {
             const urlParams = new URLSearchParams(window.location.search);
             if (urlParams.get('login') === 'failed') {
-                alert('Failed to create user.');
+                alert('Invalid credentials!');
             }
         }
     </script>
 </head>
-
 <body>
-
+    <nav>
+        <a href="/home">Home</a>
+        <a href="/signup">Sign Up</a>
+        <a href="/login">Login</a>
+        <a href="/about">About</a>
+        <a href="/history">History</a>
+        <a href="/contact">Contact</a>
+    </nav>
     <div class="container">
         <h1>Sign Up</h1>
-        <form action="/create_user_process" method="post">
+        <form action="/signup_process" method="post">
             <input type="text" placeholder="FirstName" required>
             <input type="text" placeholder="LastName" required>
             <input type="text" id="username" name="username" placeholder="Username" required>
@@ -29,14 +34,8 @@
             <input type="password" placeholder="Confirm Password" required>
             <button type="submit">Sign Up</button>
         </form>
-
-        <div style="display: flex; justify-content: center;">
-            <p>
-                Already have an account? 
-                <a href="/" class="back-link">Login</a>
-            </p>
-        </div>
-        
     </div>
 </body>
 </html>
+
+

@@ -1,0 +1,43 @@
+<!-- templates/order_history.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order History</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Order History for {{ username }}</h1>
+        <table class="order-history-table">
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Type</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                    <th>Created At</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in orders %}
+                <tr>
+                    <td>{{ order.symbol }}</td>
+                    <td>{{ order.order_type }}</td>
+                    <td>{{ order.quantity }}</td>
+                    <td>${{ order.price }}</td>
+                    <td>${{ order.total }}</td>
+                    <td>{{ order.created_at }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="/trading" class="back-link">Back to trading</a>
+        <p>
+            <a href="/" class="back-link-small">Back to Login</a>
+        </p>
+
+    </div>
+</body>
+</html>

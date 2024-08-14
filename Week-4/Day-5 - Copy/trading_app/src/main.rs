@@ -24,7 +24,6 @@ async fn main() -> std::io::Result<()> {
                     .secure(false),
             ))
             .service(fs::Files::new("/static", "./static").show_files_listing()) // Serve static files
-            .route("/home", web::get().to(controllers::home_form))
             .route("/", web::get().to(controllers::login_form))
             .route("/login", web::post().to(controllers::login_process))
             .route("/create_user", web::get().to(controllers::create_user_form))
@@ -33,6 +32,8 @@ async fn main() -> std::io::Result<()> {
             .route("/trade", web::post().to(controllers::trade_process))
             .route("/order_history", web::get().to(controllers::order_history))
             .route("/check_balance", web::get().to(controllers::check_balance))  // New route for checking balance
+            .route("/place_buy_order", web::post().to(controllers::place_buy_order))
+            .route("/place_sell_order", web::post().to(controllers::place_sell_order))
     })
     .bind("127.0.0.1:8081")?
     .run()

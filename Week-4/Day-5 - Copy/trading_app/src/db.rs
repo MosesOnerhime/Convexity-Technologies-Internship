@@ -178,7 +178,7 @@ impl DbPool {
 
                 // Execute trade
                 conn.exec_drop(
-                    r"INSERT INTO completed_orders (buyer_username, seller_username, symbol, quantity, price) VALUES (:buyer_username, :seller_username, :symbol, :quantity, :price)",
+                    r"INSERT INTO trade_orders (buyer_username, seller_username, symbol, quantity, price) VALUES (:buyer_username, :seller_username, :symbol, :quantity, :price)",
                     params! {
                         "buyer_username" => buyer_username.clone(),
                         "seller_username" => seller_username.clone(),

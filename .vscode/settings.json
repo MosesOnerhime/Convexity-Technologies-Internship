@@ -1,3 +1,4 @@
 {
-    "rust-analyzer.checkOnSave": true
+    "rust-analyzer.checkOnSave": true,
+    "liveServer.settings.port": 5501
 }

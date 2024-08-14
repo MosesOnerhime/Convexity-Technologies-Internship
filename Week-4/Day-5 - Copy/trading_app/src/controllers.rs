@@ -24,9 +24,18 @@ pub struct TradeForm {
     pub quantity: u32,
 }
 
-pub async fn home_form(tera: web::Data<Tera>) -> impl Responder {
-    let s = tera.render("home.html", &Context::new()).unwrap();
-    HttpResponse::Ok().content_type("text/html").body(s)
+#[derive(Debug, Deserialize)]
+pub struct PlaceBuyOrderForm {
+    pub symbol: String,
+    pub quantity: u32,
+    pub max_price: f64,
+}
+
+#[derive(Debug, Deserialize)]
+pub struct PlaceSellOrderForm {
+    pub symbol: String,
+    pub quantity: u32,
+    pub min_price: f64,
 }
 
 pub async fn login_form(tera: web::Data<Tera>) -> impl Responder {
@@ -113,10 +122,6 @@ pub async fn trade_process(
         };
         context.insert("current_balance", &current_balance);
 
-        // Fetch the order history
-        let orders = db_pool.get_order_history(&username).unwrap();
-        context.insert("orders", &orders);
-
         // API call to fetch the price
         let api_key = "HX7K0WCKTZZ1KEJY";
         let url = format!("https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol={}&interval=1min&apikey={}", form.symbol, api_key);
@@ -149,9 +154,6 @@ pub async fn trade_process(
                             context.insert("error", "Failed to update balance!");
                         }
 
-                        let _ = db_pool.place_buy_order(&username, &form.symbol.to_uppercase(), form.quantity as i32, total_value);
-                        // Trigger order matching
-                        let _ = db_pool.match_orders();
                         if let Err(_) = db_pool.save_order(&username, &form.symbol.to_uppercase(), &form.order_type, form.quantity as i32, price) {
                             context.insert("error", "Failed to save order!");
                         } else {
@@ -167,9 +169,6 @@ pub async fn trade_process(
                             context.insert("error", "Failed to update balance!");
                         }
 
-                        let _ = db_pool.place_sell_order(&username, &form.symbol, form.quantity as i32, total_value);
-                        // Trigger order matching
-                        let _ = db_pool.match_orders();
                         if let Err(_) = db_pool.save_order(&username, &form.symbol.to_uppercase(), &form.order_type, form.quantity as i32, price) {
                             context.insert("error", "Failed to save order!");
                         } else {
@@ -237,7 +236,6 @@ pub async fn check_balance(
     }
 }
 
-/*
 pub async fn place_buy_order(
     form: web::Form<PlaceBuyOrderForm>,
     id: Identity,
@@ -252,9 +250,7 @@ pub async fn place_buy_order(
         HttpResponse::Unauthorized().body("Please log in to place an order")
     }
 }
-*/
 
-/*
 pub async fn place_sell_order(
     form: web::Form<PlaceSellOrderForm>,
     id: Identity,
@@ -269,4 +265,3 @@ pub async fn place_sell_order(
         HttpResponse::Unauthorized().body("Please log in to place an order")
     }
 }
-*/

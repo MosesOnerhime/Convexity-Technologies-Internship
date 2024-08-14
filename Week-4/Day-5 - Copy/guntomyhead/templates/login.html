@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+    <link rel="stylesheet" href="styles.css">
     <script>
         window.onload = function() {
             const urlParams = new URLSearchParams(window.location.search);
@@ -15,21 +15,23 @@
     </script>
 </head>
 <body>
-
+    <nav>
+        <a href="/home">Home</a>
+        <a href="/signup">Sign Up</a>
+        <a href="/login">Login</a>
+        <a href="/about">About</a>
+        <a href="/history">History</a>
+        <a href="/contact">Contact</a>
+    </nav>
     <div class="container">
         <h1>Login</h1>
-        <form action="/login" method="post">
+        <form action="/login_process" method="post">
             <input type="text" id="username" name="username" placeholder="Username" required>
             <input type="password" id="password" name="password"  placeholder="Password" required style="margin-bottom: 15px;">
             <button type="submit">Login</button>
         </form>
-        <div style="display: flex; justify-content: center;">
-            <p>
-                Don't have an account? 
-                <a href="/create_user" class="back-link">Create one</a>
-            </p>
-        </div>
-        
     </div>
 </body>
 </html>
+
+
