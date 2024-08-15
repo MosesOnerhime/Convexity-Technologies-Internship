@@ -1,0 +1,55 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=DM+Sans:500,400,700|League+Spartan:700");
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0px;
+  height: 100%;
+}
+/* a blue color as a generic focus style */
+button:focus-visible {
+  outline: 2px solid #4a90e2 !important;
+  outline: -webkit-focus-ring-color auto 5px !important;
+}
+a {
+  text-decoration: none;
+}
+@font-face {
+  font-family: "Arial-Regular";
+  src: url("https://anima-uploads.s3.amazonaws.com/projects/6684c095fc84bfec6fc0fca4/fonts/arial-regular.ttf")
+    format("truetype");
+}
+
+button.menu {
+  display: flex;
+  align-items: center;
+  background-color: #10151a; /* Button background color */
+  border: none; /* Remove default button border */
+  padding: 10px; /* Button padding */
+  cursor: pointer; /* Change cursor on hover */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow */
+  transition: background-color 0.3s ease; /* Smooth background transition */
+}
+
+button.menu:hover {
+  background-color: #e78bff; /* Change background on hover */
+}
+
+button.menu .fi-sr-home {
+  margin-right: 8px; /* Space between icon and text */
+}
+
+button.menu .group {
+  width: 24px; /* Adjust icon size */
+  height: 24px;
+}
+
+button.menu .home {
+  font-size: 16px; /* Adjust text size */
+  font-weight: bold; /* Make text bold */
+  color: #333; /* Text color */
+}

@@ -118,9 +118,7 @@ pub async fn trade_process(
         };
         context.insert("current_balance", &current_balance);
 
-        // Fetch the order history
-        let orders = db_pool.get_order_history(&username).unwrap();
-        context.insert("orders", &orders);
+        
 
         // API call to fetch the price
         let api_key = "HX7K0WCKTZZ1KEJY";
@@ -148,7 +146,7 @@ pub async fn trade_process(
                 Some(price) => {
                     let total_value = price * form.quantity as f64;
 
-                    if current_balance >= total_value && &form.order_type == "buy" {
+                    if current_balance >= total_value && &form.order_type == "buy" {     //buy option
                         let new_balance = current_balance - total_value;
                         if let Err(_) = db_pool.update_balance(&username, new_balance) {
                             context.insert("error", "Failed to update balance!");
@@ -166,7 +164,7 @@ pub async fn trade_process(
                             context.insert("total_value", &total_value);
                             context.insert("new_balance", &new_balance);
                         }
-                    } else if &form.order_type == "sell" {
+                    } else if &form.order_type == "sell" {     // sell option
                         let new_balance = current_balance + total_value;
                         if let Err(_) = db_pool.update_balance(&username, new_balance) {
                             context.insert("error", "Failed to update balance!");
@@ -187,6 +185,11 @@ pub async fn trade_process(
                     } else {
                         context.insert("error", "Insufficient balance!");
                     }
+
+                    // Fetch the order history
+                    let orders = db_pool.get_order_history(&username).unwrap();
+                    context.insert("orders", &orders);
+                    
                 },
                 None => {
                     context.insert("error", "Symbol not found!");
@@ -210,7 +213,7 @@ pub async fn trade_process(
     }
 }
 
-/*
+
 pub async fn order_history(
     id: Identity,
     tera: web::Data<Tera>,
@@ -228,7 +231,7 @@ pub async fn order_history(
     } else {
         HttpResponse::Unauthorized().body("Please log in to view your order history")
     }
-} */
+}
 
 pub async fn check_balance(
     id: Identity,

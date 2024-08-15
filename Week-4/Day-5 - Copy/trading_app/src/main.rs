@@ -24,6 +24,7 @@ async fn main() -> std::io::Result<()> {
                     .secure(false),
             ))
             .service(fs::Files::new("/static", "./static").show_files_listing()) // Serve static files
+            .route("/home", web::get().to(controllers::home_form))
             .route("/", web::get().to(controllers::login_form))
             .route("/login", web::post().to(controllers::login_process))
             .route("/create_user", web::get().to(controllers::create_user_form))

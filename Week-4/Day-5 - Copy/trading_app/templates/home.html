@@ -1,32 +1,337 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <script>
-        window.onload = function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('login') === 'success') {
-                alert('Login successful!');
-            }
-        }
-    </script>
-</head>
-<body>
-    <h1 style="font-size: 40px;">STOCK TRADING APP</h1>
-    <nav> 
-        <a href="/home">Home</a>
-        <a href="/create_user">Sign Up</a>
-        <a href="/login">Login</a>
-        <a href="/trading">Trading</a>
-        <a href="/about">About</a>
-        <a href="/history">History</a>
-        <a href="/contact">Contact</a>
-    </nav>
-    <div class="container">
-        <img src="ldr.png" alt="LDR" style="width: 100%; height: 100%;">
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="/static/css/globals.css" />
+    <link rel="stylesheet" href="/static/css/styleguide.css" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+  <body>
+    <div class="desktop">
+      <div class="div">
+        <div class="sidebar">
+          <div class="frame">
+            <div class="LOGO">
+              <p class="CRYPTOFUN"><span class="text-wrapper">TRADE</span> <span class="span">SPHERE</span></p>
+            </div>
+            <div class="side-menu">
+              <div class="menu">
+                <div class="fi-sr-home"></div>
+                <div class="text-wrapper-2">Home</div>
+              </div>
+              <div class="menu-2">
+                <div class="fi-sr-chart"></div>
+                <div class="home">Trading</div>
+              </div>
+              <div class="menu">
+                <div class="fi-sr-badge"></div>
+                <div class="text-wrapper-2">Rewards</div>
+                <div class="small-button"><div class="text-wrapper-3">New</div></div>
+              </div>
+              <div class="menu">
+                <div class="fi-sr-chart-pie-alt"></div>
+                <div class="text-wrapper-2">Portfolio</div>
+              </div>
+              <div class="menu">
+                <div class="fi-sr-gift"></div>
+                <div class="text-wrapper-2">Refferal</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="frame-wrapper">
+          <div class="frame-2">
+            <div class="text-wrapper-4">Trading</div>
+            <div class="profile-bar">
+              <div class="bt-search">
+                <img class="icon-outline-search" src="/static/css/img/icon-outline-search-2.svg" />
+                <div class="text-wrapper-5">Search for coins</div>
+              </div>
+              <div class="fi-sr-bell"></div>
+              <div class="user">
+                <img class="ellipse" src="/static/css/img/ellipse-50-2.svg" />
+                <div class="div-wrapper"><div class="text-wrapper-6">Laura</div></div>
+                <div class="icon-outline-search">
+                  <img class="fi-sr-angle-small" src="/static/css/img/fi-sr-angle-small-down-7.svg" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="frame-3">
+          <div class="frame-4">
+            <div class="frame-2">
+              <div class="crypto-big">
+                <img class="bitcoin" src="/static/css/img/bitcoin-4.svg" />
+                <div class="text-wrapper-7">Bitcoin</div>
+                <div class="text-wrapper-8">BTC</div>
+              </div>
+              <div class="frame-5">
+                <div class="bt-selector">
+                  <div class="text-wrapper-9">$ USD</div>
+                  <div class="fi-sr-angle-small-wrapper">
+                    <img class="img" src="/static/css/img/fi-sr-angle-small-down-8.svg" />
+                  </div>
+                </div>
+                <div class="bt-selector">
+                  <div class="text-wrapper-9">24 hours</div>
+                  <div class="fi-sr-angle-small-wrapper">
+                    <img class="img" src="/static/css/img/fi-sr-angle-small-down-9.svg" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="price-big-wrapper">
+              <div class="price-big">
+                <div class="frame-6">
+                  <div class="text-wrapper-10">$</div>
+                  <div class="text-wrapper-11">29,137</div>
+                </div>
+                <div class="div-2">
+                  <div class="fi-sr-caret-up"></div>
+                  <div class="text-wrapper-12">12%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="graph">
+            <div class="price">
+              <div class="text-wrapper-13">35k</div>
+              <div class="text-wrapper-14">33k</div>
+              <div class="text-wrapper-14">31k</div>
+              <div class="text-wrapper-14">29k</div>
+            </div>
+            <div class="navbar">
+              <div class="text-wrapper-13">6 AM</div>
+              <div class="text-wrapper-13">9 AM</div>
+              <div class="text-wrapper-13">12 PM</div>
+              <div class="text-wrapper-13">3 PM</div>
+              <div class="text-wrapper-13">6 PM</div>
+              <div class="text-wrapper-13">9 PM</div>
+              <div class="text-wrapper-13">12 AM</div>
+              <div class="text-wrapper-13">3 AM</div>
+            </div>
+            <div class="overlap">
+              <div class="overlap-wrapper">
+                <div class="overlap-group">
+                  <img class="line" src="/static/css/img/line-3.svg" />
+                  <div class="dialog">
+                    <div class="overlap-group-2">
+                      <div class="frame-7">
+                        <div class="text-wrapper-15">$32,198</div>
+                        <div class="text-wrapper-16">3 PM</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="line-2">
+                <img class="line-3" src="/static/css/img/line-2.svg" />
+                <img class="line-4" src="/static/css/img/line-2.svg" />
+                <img class="line-4" src="/static/css/img/line-2.svg" />
+                <img class="line-4" src="/static/css/img/line-2.svg" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="frame-8">
+          <div class="frame-9">
+            <div class="bt-underscore"><button class="button">Buy</button></div>
+            <div class="button-wrapper"><button class="button">Sell</button></div>
+          </div>
+          <div class="frame-10">
+            <div class="bt-pay">
+              <div class="txt"><div class="text-wrapper-17">You will pay</div></div>
+              <div class="bt">
+                <div class="search-for-coins">0.00</div>
+                <div class="frame-11">
+                  <div class="div-2">
+                    <img class="bitcoin-2" src="/static/css/img/bitcoin-5.svg" />
+                    <div class="text-wrapper-18">BTC</div>
+                  </div>
+                  <div class="bt-chevron">
+                    <div class="fi-sr-angle-small-wrapper">
+                      <img class="img" src="/static/css/img/fi-sr-angle-small-down-10.svg" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="bt-pay">
+              <div class="txt"><div class="text-wrapper-17">You will receive</div></div>
+              <div class="bt">
+                <div class="search-for-coins">0.00</div>
+                <div class="frame-11">
+                  <div class="div-2">
+                    <div class="usa"></div>
+                    <div class="text-wrapper-18">USD</div>
+                  </div>
+                  <div class="bt-chevron">
+                    <div class="fi-sr-angle-small-wrapper">
+                      <img class="img" src="/static/css/img/fi-sr-angle-small-down-11.svg" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="bt-2"><button class="button-2">Buy now</button></button>
+        </div>
+        <div class="frame-12">
+          <div class="frame-2">
+            <div class="text-wrapper-19">Prices</div>
+            <div class="bt-selector">
+              <div class="text-wrapper-9">Watchlist</div>
+              <div class="fi-sr-angle-small-wrapper"><img class="img" src="/static/css/img/fi-sr-angle-small-down-12.svg" /></div>
+            </div>
+          </div>
+          <div class="frame-13">
+            <div class="crypto-price">
+              <div class="frame-14">
+                <div class="ethereum"></div>
+                <div class="frame-15">
+                  <div class="text-wrapper-20">Ethereum</div>
+                  <div class="eth">ETH</div>
+                </div>
+              </div>
+              <div class="frame-16">
+                <div class="div-2">
+                  <div class="fi-sr-caret-up-2"></div>
+                  <div class="text-wrapper-12">12%</div>
+                </div>
+                <div class="text-wrapper-21">$19.73</div>
+              </div>
+            </div>
+            <div class="crypto-price-2">
+              <div class="frame-14">
+                <div class="solana"></div>
+                <div class="frame-15">
+                  <div class="text-wrapper-20">Solana</div>
+                  <div class="eth">SOL</div>
+                </div>
+              </div>
+              <div class="frame-16">
+                <div class="div-2">
+                  <div class="fi-sr-caret-down"></div>
+                  <div class="element">9%</div>
+                </div>
+                <div class="text-wrapper-21">$12.96</div>
+              </div>
+            </div>
+            <div class="crypto-price">
+              <div class="frame-14">
+                <div class="ripple"></div>
+                <div class="frame-15">
+                  <div class="text-wrapper-20">Ripple</div>
+                  <div class="eth">XRP</div>
+                </div>
+              </div>
+              <div class="frame-16">
+                <div class="div-2">
+                  <div class="fi-sr-caret-up"></div>
+                  <div class="text-wrapper-12">12%</div>
+                </div>
+                <div class="text-wrapper-21">$8.21</div>
+              </div>
+            </div>
+          </div>
+          <div class="bt-arrow">
+            <div class="text-wrapper-22">View all</div>
+            <div class="fi-sr-arrow-small"></div>
+          </div>
+        </div>
+        <div class="frame-17">
+          <div class="frame-2">
+            <div class="text-wrapper-19">Market stats</div>
+            <div class="frame-18">
+              <div class="activity">
+                <div class="text-wrapper-23">Activity:</div>
+                <div class="text-wrapper-24">70% buy</div>
+                <div class="activity-indicator">
+                  <div class="r"></div>
+                  <div class="r"></div>
+                  <div class="r"></div>
+                  <div class="r"></div>
+                  <div class="r"></div>
+                  <div class="r"></div>
+                  <div class="r"></div>
+                  <div class="r"></div>
+                  <div class="r"></div>
+                  <div class="r"></div>
+                  <div class="r"></div>
+                  <div class="r"></div>
+                  <div class="r-2"></div>
+                  <div class="r-2"></div>
+                  <div class="r-2"></div>
+                  <div class="r-2"></div>
+                  <div class="r-2"></div>
+                  <div class="r-2"></div>
+                  <div class="r-2"></div>
+                  <div class="r-2"></div>
+                </div>
+                <div class="element-buy">30% sell</div>
+              </div>
+              <div class="activity">
+                <div class="text-wrapper-25">Popularity</div>
+                <div class="text-wrapper-26">#1</div>
+              </div>
+            </div>
+          </div>
+          <div class="frame-2">
+            <div class="info">
+              <div class="text-wrapper-27">Market Cap</div>
+              <div class="frame-19">
+                <div class="text-wrapper-28">$700.56 B</div>
+                <div class="text-wrapper-23">33% of crypto market</div>
+              </div>
+            </div>
+            <img class="line-5" src="/static/css/img/line-5.svg" />
+            <div class="info">
+              <div class="text-wrapper-27">Volume(24h)</div>
+              <div class="frame-19">
+                <div class="text-wrapper-28">$29.78 B</div>
+                <div class="div-2">
+                  <div class="fi-sr-caret-up-3"></div>
+                  <div class="text-wrapper-12">30%</div>
+                </div>
+              </div>
+            </div>
+            <img class="line-5" src="/static/css/img/line-6.svg" />
+            <div class="info">
+              <div class="text-wrapper-27">Circulating supply</div>
+              <div class="frame-19">
+                <div class="text-wrapper-28">18.5M&nbsp;&nbsp;BTC</div>
+                <div class="text-wrapper-23">92% of total supply</div>
+              </div>
+            </div>
+            <img class="line-5" src="/static/css/img/line-7.svg" />
+            <div class="info">
+              <div class="text-wrapper-27">Typical hold time</div>
+              <div class="frame-19"><div class="text-wrapper-28">90 days</div></div>
+            </div>
+          </div>
+          <img class="line-6" src="/static/css/img/line-3-2.svg" />
+          <div class="frame-2">
+            <div class="frame-20">
+              <div class="text-wrapper-29">Performance</div>
+              <p class="text-wrapper-30">Update April 14, 2024 11:54 PM</p>
+            </div>
+            <div class="frame-21">
+              <div class="text-wrapper-30">Past year</div>
+              <img class="line-5" src="/static/css/img/line-5-1.svg" />
+              <div class="frame-22">
+                <div class="text-wrapper-31">Bitcoin</div>
+                <div class="text-wrapper-32">+246%</div>
+              </div>
+              <img class="line-5" src="/static/css/img/line-6-1.svg" />
+              <div class="frame-22">
+                <div class="text-wrapper-31">Market</div>
+                <div class="text-wrapper-33">+329%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>

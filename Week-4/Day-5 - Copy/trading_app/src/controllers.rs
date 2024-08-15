@@ -38,6 +38,11 @@ pub struct PlaceSellOrderForm {
     pub min_price: f64,
 }
 
+pub async fn home_form(tera: web::Data<Tera>) -> impl Responder {
+    let s = tera.render("home.html", &Context::new()).unwrap();
+    HttpResponse::Ok().content_type("text/html").body(s)
+}
+
 pub async fn login_form(tera: web::Data<Tera>) -> impl Responder {
     let s = tera.render("login.html", &Context::new()).unwrap();
     HttpResponse::Ok().content_type("text/html").body(s)
@@ -98,6 +103,11 @@ pub async fn trading_form(id: Identity, tera: web::Data<Tera>, db_pool: web::Dat
         };
         context.insert("new_balance", &current_balance);
         context.insert("username", &username);
+
+        // Fetch the order history
+        let orders = db_pool.get_order_history(&username).unwrap();
+        context.insert("orders", &orders);
+
         let s = tera.render("trading.html", &context).unwrap();
         HttpResponse::Ok().content_type("text/html").body(s)
     } else {
@@ -121,6 +131,10 @@ pub async fn trade_process(
             Err(_) => 0.0,
         };
         context.insert("current_balance", &current_balance);
+
+        // Fetch the order history
+        let orders = db_pool.get_order_history(&username).unwrap();
+        context.insert("orders", &orders);
 
         // API call to fetch the price
         let api_key = "HX7K0WCKTZZ1KEJY";
