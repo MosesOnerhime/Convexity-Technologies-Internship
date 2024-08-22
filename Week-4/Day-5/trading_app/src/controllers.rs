@@ -18,14 +18,14 @@ pub struct CreateUserForm {
 }
 
 #[derive(Debug, Deserialize)]
-pub struct TradeForm {
+pub struct MarketForm {
     pub symbol: String,
     pub order_type: String,  // "buy" or "sell"
     pub quantity: u32,
 }
 
-pub async fn home_form(tera: web::Data<Tera>) -> impl Responder {
-    let s = tera.render("home.html", &Context::new()).unwrap();
+pub async fn dashboard_form(tera: web::Data<Tera>) -> impl Responder {
+    let s = tera.render("dashboard.html", &Context::new()).unwrap();
     HttpResponse::Ok().content_type("text/html").body(s)
 }
 
@@ -44,7 +44,7 @@ pub async fn login_process(
     if login_result {
         id.remember(form.username.clone());
         HttpResponse::Found()
-            .append_header(("Location", "/trading?login=success"))
+            .append_header(("Location", "/market"))
             .finish()
     } else {
         HttpResponse::Found()
@@ -69,7 +69,7 @@ pub async fn create_user_process(
     if login_result {
         id.remember(form.username.clone());
         HttpResponse::Found()
-            .append_header(("Location", "/trading?login=success"))
+            .append_header(("Location", "/market"))
             .finish()
     } else {
         HttpResponse::Found()
@@ -78,7 +78,7 @@ pub async fn create_user_process(
     }
 }
 
-pub async fn trading_form(id: Identity, tera: web::Data<Tera>, db_pool: web::Data<DbPool>) -> impl Responder {
+pub async fn market_form(id: Identity, tera: web::Data<Tera>, db_pool: web::Data<DbPool>) -> impl Responder {
     if let Some(username) = id.identity() {
         let mut context = Context::new();
 
@@ -94,15 +94,15 @@ pub async fn trading_form(id: Identity, tera: web::Data<Tera>, db_pool: web::Dat
         let orders = db_pool.get_order_history(&username).unwrap();
         context.insert("orders", &orders);
 
-        let s = tera.render("trading.html", &context).unwrap();
+        let s = tera.render("market.html", &context).unwrap();
         HttpResponse::Ok().content_type("text/html").body(s)
     } else {
         HttpResponse::Unauthorized().body("Please log in to view this page")
     }
 }
 
-pub async fn trade_process(
-    form: web::Form<TradeForm>, 
+pub async fn market_process(
+    form: web::Form<MarketForm>, 
     tera: web::Data<Tera>,
     id: Identity,
     db_pool: web::Data<DbPool>,
@@ -201,7 +201,7 @@ pub async fn trade_process(
 
 
         // Render the template
-        match tera.render("trading.html", &context) {
+        match tera.render("market.html", &context) {
             Ok(rendered) => HttpResponse::Ok().content_type("text/html").body(rendered),
             Err(err) => {
                 eprintln!("Template rendering error: {:?}", err);
@@ -226,7 +226,7 @@ pub async fn order_history(
         context.insert("username", &username);
         context.insert("orders", &orders);
 
-        let s = tera.render("order_history.html", &context).unwrap();
+        let s = tera.render("transactions.html", &context).unwrap();
         HttpResponse::Ok().content_type("text/html").body(s)
     } else {
         HttpResponse::Unauthorized().body("Please log in to view your order history")

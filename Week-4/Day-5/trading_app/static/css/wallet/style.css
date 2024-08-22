@@ -1,0 +1,995 @@
+.financial-wallet {
+  background-color: #0e1519;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  /* height: 100%; */
+}
+
+.financial-wallet .div {
+  background-color: #0e1519;
+  overflow: hidden;
+  width: 1440px;
+  height: 1301px;
+  position: relative;
+}
+
+.financial-wallet .frame {
+  position: absolute;
+  width: 1176px;
+  height: 1354px;
+  top: 0;
+  left: 264px;
+  background-color: #191d1f87;
+}
+
+.financial-wallet .overlap-group {
+  position: relative;
+  width: 1303px;
+  height: 1758px;
+  top: 35px;
+  left: 12px;
+}
+
+.financial-wallet .ellipse {
+  width: 605px;
+  height: 605px;
+  top: 440px;
+  left: 698px;
+  background-color: #72398538;
+  border-radius: 302.5px;
+  position: absolute;
+  filter: blur(241.16px);
+}
+
+.financial-wallet .ellipse-2 {
+  width: 254px;
+  height: 203px;
+  top: 0;
+  left: 445px;
+  background-color: #56235e;
+  border-radius: 127px/101.5px;
+  position: absolute;
+  filter: blur(241.16px);
+}
+
+.financial-wallet .frame-2 {
+  display: flex;
+  width: 1076px;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  top: 3px;
+  left: 48px;
+}
+
+.financial-wallet .text-wrapper {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "DM Sans", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 40px;
+  letter-spacing: 0;
+  line-height: 32px;
+  white-space: nowrap;
+}
+
+.financial-wallet .div-2 {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.financial-wallet .text-wrapper-2 {
+  position: relative;
+  width: fit-content;
+  font-family: "DM Sans", Helvetica;
+  font-weight: 400;
+  color: #d4d4d4;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.financial-wallet .img {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+.financial-wallet .frame-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 1151px;
+  height: 1675px;
+  align-items: flex-start;
+  gap: 104px;
+  position: absolute;
+  top: 83px;
+  left: 0;
+}
+
+.financial-wallet .frame-3 {
+  height: 1236px;
+  gap: 28px;
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+}
+
+.financial-wallet .frame-4 {
+  display: flex;
+  flex-direction: column;
+  width: 246px;
+  height: 957px;
+  align-items: flex-start;
+  gap: 32px;
+  padding: 16px 24px;
+  position: relative;
+  background-color: #191f24;
+  border-radius: 16px;
+}
+
+.financial-wallet .frame-5 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.financial-wallet .text-wrapper-3 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "DM Sans", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 32px;
+  white-space: nowrap;
+}
+
+.financial-wallet .bt-search {
+  width: 193px;
+  height: 28px;
+  gap: 8px;
+  padding: 12px 16px;
+  background: linear-gradient(180deg, rgb(26, 32, 36) 0%, rgb(53.61, 46.57, 62.81) 100%);
+  display: flex;
+  align-items: center;
+  position: relative;
+  border-radius: 100px;
+}
+
+.financial-wallet .icon-outline-search {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin-top: -8px;
+  margin-bottom: -8px;
+}
+
+.financial-wallet .text-wrapper-4 {
+  position: relative;
+  width: fit-content;
+  margin-top: -7px;
+  margin-bottom: -5px;
+  font-family: "Poppins", Helvetica;
+  font-weight: 400;
+  color: var(--grey-500);
+  font-size: 11px;
+  letter-spacing: 0;
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+.financial-wallet .crypto-price {
+  display: flex;
+  height: 47px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 8px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgb(43.72, 21.42, 54.88) 0%, rgb(15, 21, 25) 100%);
+}
+
+.financial-wallet .frame-6 {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  flex: 0 0 auto;
+  margin-top: -10.5px;
+  margin-bottom: -10.5px;
+}
+
+.financial-wallet .group {
+  position: relative;
+  width: 17.5px;
+  height: 17.5px;
+  background-image: url(./img/wallet.png);
+  background-size: 100% 100%;
+}
+
+.financial-wallet .frame-7 {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.financial-wallet .text-wrapper-5 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Poppins", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 14px;
+  letter-spacing: -0.7px;
+  line-height: 18px;
+  white-space: nowrap;
+}
+
+.financial-wallet .text-wrapper-6 {
+  position: relative;
+  width: fit-content;
+  font-family: "Poppins", Helvetica;
+  font-weight: 400;
+  color: var(--grey-500);
+  font-size: 14px;
+  letter-spacing: -0.7px;
+  line-height: 18px;
+  white-space: nowrap;
+}
+
+.financial-wallet .frame-8 {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 4px;
+  position: relative;
+  flex: 0 0 auto;
+  margin-top: -6.5px;
+  margin-bottom: -6.5px;
+}
+
+.financial-wallet .change {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.financial-wallet .text-wrapper-7 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: var(--indicator-font-family);
+  font-weight: var(--indicator-font-weight);
+  color: #9e9e9e;
+  font-size: var(--indicator-font-size);
+  letter-spacing: var(--indicator-letter-spacing);
+  line-height: var(--indicator-line-height);
+  white-space: nowrap;
+  font-style: var(--indicator-font-style);
+}
+
+.financial-wallet .text-wrapper-8 {
+  position: relative;
+  width: fit-content;
+  font-family: var(--prices-font-family);
+  font-weight: var(--prices-font-weight);
+  color: #ffffff;
+  font-size: var(--prices-font-size);
+  letter-spacing: var(--prices-letter-spacing);
+  line-height: var(--prices-line-height);
+  white-space: nowrap;
+  font-style: var(--prices-font-style);
+}
+
+.financial-wallet .crypto-price-2 {
+  display: flex;
+  height: 47px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 8px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgb(44, 21, 55) 0%, rgb(15, 21, 25) 100%);
+}
+
+.financial-wallet .group-2 {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  background-image: url(./img/wallet-1.png);
+  background-size: 100% 100%;
+}
+
+.financial-wallet .frame-9 {
+  display: inline-flex;
+  flex-direction: column;
+  height: 957px;
+  align-items: center;
+  gap: 28px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.financial-wallet .frame-10 {
+  display: flex;
+  flex-direction: column;
+  width: 845px;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 24px;
+  position: relative;
+  flex: 0 0 auto;
+  background-color: #1a2024;
+  border-radius: 16px;
+}
+
+.financial-wallet .div-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 399px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.financial-wallet .frame-11 {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 8px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.financial-wallet .text-wrapper-9 {
+  width: fit-content;
+  margin-top: -1px;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  white-space: nowrap;
+  position: relative;
+  font-family: "DM Sans", Helvetica;
+  color: #ffffff;
+  letter-spacing: 0;
+}
+
+.financial-wallet .frame-12 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.financial-wallet .frame-13 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.financial-wallet .crypto-big {
+  display: inline-flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 12px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.financial-wallet .bitcoin {
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+
+.financial-wallet .bitcoin-2 {
+  position: relative;
+  align-self: stretch;
+  width: 85px;
+  margin-top: -1px;
+  font-family: "Poppins", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 28px;
+  letter-spacing: -1.4px;
+  line-height: 28px;
+  white-space: nowrap;
+}
+
+.financial-wallet .BTC {
+  position: relative;
+  width: fit-content;
+  font-family: "Poppins", Helvetica;
+  font-weight: 400;
+  color: var(--grey-300);
+  font-size: 20px;
+  letter-spacing: -1px;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.financial-wallet .bt-selector-wrapper {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 16px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.financial-wallet .bt-selector {
+  width: 140px;
+  height: 58px;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 12px;
+  overflow: hidden;
+  border: 1px solid;
+  border-color: #0000001a;
+  background: linear-gradient(180deg, rgb(38.68, 33.33, 40.14) 0%, rgb(15, 21, 25) 100%);
+  display: flex;
+  align-items: center;
+  position: relative;
+  border-radius: 100px;
+}
+
+.financial-wallet .text-wrapper-10 {
+  position: relative;
+  width: fit-content;
+  font-family: "Manrope", Helvetica;
+  font-weight: 500;
+  color: #f3eaff;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: 14px;
+  white-space: nowrap;
+}
+
+.financial-wallet .frame-14 {
+  display: flex;
+  flex-direction: column;
+  height: 97px;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+}
+
+.financial-wallet .price-big {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.financial-wallet .frame-15 {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 8px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.financial-wallet .text-wrapper-11 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Poppins", Helvetica;
+  font-weight: 400;
+  color: #f2eef8;
+  font-size: 24px;
+  letter-spacing: -1.2px;
+  line-height: 36px;
+  white-space: nowrap;
+}
+
+.financial-wallet .text-wrapper-12 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Poppins", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 48px;
+  letter-spacing: -2.4px;
+  line-height: 48px;
+  white-space: nowrap;
+}
+
+.financial-wallet .price-big-2 {
+  display: flex;
+  width: 196px;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  position: relative;
+  flex: 1;
+  flex-grow: 1;
+}
+
+.financial-wallet .element {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Poppins", Helvetica;
+  font-weight: 500;
+  color: #9e9e9e;
+  font-size: 15px;
+  letter-spacing: -0.75px;
+  line-height: 48px;
+  white-space: nowrap;
+}
+
+.financial-wallet .frame-16 {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 24px;
+  position: relative;
+  flex: 0 0 auto;
+  background-color: #1a2024;
+  border-radius: 16px;
+}
+
+.financial-wallet .frame-17 {
+  display: flex;
+  width: 797px;
+  align-items: flex-start;
+  gap: 399px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.financial-wallet .frame-18 {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 16px 16px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.financial-wallet .price-big-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 644px;
+  height: 97px;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1px;
+  position: relative;
+}
+
+.financial-wallet .frame-19 {
+  flex-direction: column;
+  height: 433px;
+  gap: 8px;
+  padding: 16px 24px;
+  background-color: #191f24;
+  border-radius: 16px;
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+}
+
+.financial-wallet .frame-20 {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.financial-wallet .text-wrapper-13 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "DM Sans", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: 32px;
+  white-space: nowrap;
+}
+
+.financial-wallet .text-wrapper-14 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "DM Sans", Helvetica;
+  font-weight: 500;
+  color: #9a4efb;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.financial-wallet .icon-arrow-right {
+  position: relative;
+  width: 11px;
+  height: 10.6px;
+  margin-right: -0.5px;
+}
+
+.financial-wallet .frame-21 {
+  display: flex;
+  flex-direction: column;
+  height: 404px;
+  align-items: flex-start;
+  gap: 12px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  margin-bottom: -43px;
+}
+
+.financial-wallet .frame-22 {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.financial-wallet .frame-23 {
+  display: flex;
+  flex-direction: column;
+  width: 128px;
+  height: 340px;
+  align-items: flex-start;
+  padding: 0px 16px;
+  position: relative;
+}
+
+.financial-wallet .frame-24 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  flex: 1;
+  align-self: stretch;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.financial-wallet .text-wrapper-15 {
+  position: relative;
+  width: 48px;
+  font-family: "DM Sans", Helvetica;
+  font-weight: 700;
+  color: #a6a6a6;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 20px;
+}
+
+.financial-wallet .text-wrapper-16 {
+  position: relative;
+  width: 48px;
+  font-family: "DM Sans", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 32px;
+}
+
+.financial-wallet .frame-25 {
+  display: flex;
+  flex-direction: column;
+  height: 340px;
+  align-items: center;
+  padding: 0px 16px;
+  position: relative;
+  flex: 1;
+  flex-grow: 1;
+}
+
+.financial-wallet .text-wrapper-17 {
+  position: relative;
+  width: 58px;
+  font-family: "DM Sans", Helvetica;
+  font-weight: 700;
+  color: #a6a6a6;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 20px;
+}
+
+.financial-wallet .text-wrapper-18 {
+  position: relative;
+  flex: 1;
+  font-family: "DM Sans", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 32px;
+}
+
+.financial-wallet .frame-26 {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  position: relative;
+  flex: 1;
+  align-self: stretch;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.financial-wallet .frame-27 {
+  display: flex;
+  flex-direction: column;
+  width: 174px;
+  height: 340px;
+  align-items: flex-end;
+  padding: 0px 16px;
+  position: relative;
+}
+
+.financial-wallet .frame-28 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  flex: 1;
+  align-self: stretch;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.financial-wallet .date-time {
+  position: relative;
+  width: fit-content;
+  font-family: "DM Sans", Helvetica;
+  font-weight: 700;
+  color: #a6a6a6;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.financial-wallet .text-wrapper-19 {
+  position: relative;
+  width: fit-content;
+  font-family: "DM Sans", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 32px;
+  white-space: nowrap;
+}
+
+.financial-wallet .frame-29 {
+  display: flex;
+  flex-direction: column;
+  height: 340px;
+  align-items: flex-end;
+  padding: 0px 16px;
+  position: relative;
+  flex: 1;
+  flex-grow: 1;
+}
+
+.financial-wallet .text-wrapper-20 {
+  position: relative;
+  width: fit-content;
+  font-family: "DM Sans", Helvetica;
+  font-weight: 700;
+  color: #a6a6a6;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.financial-wallet .text-wrapper-21 {
+  position: relative;
+  width: fit-content;
+  font-family: "DM Sans", Helvetica;
+  font-weight: 400;
+  color: #75e763;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.financial-wallet .overlap {
+  position: absolute;
+  width: 431px;
+  height: 896px;
+  top: 0;
+  left: -167px;
+}
+
+.financial-wallet .tab-bar {
+  position: absolute;
+  width: 264px;
+  height: 896px;
+  top: 0;
+  left: 167px;
+}
+
+.financial-wallet .overlap-2 {
+  position: relative;
+  height: 896px;
+}
+
+.financial-wallet .rectangle {
+  position: absolute;
+  width: 262px;
+  height: 896px;
+  top: 0;
+  left: 0;
+  background-color: #0f1519;
+}
+
+.financial-wallet .sidebar-section {
+  display: flex;
+  flex-direction: column;
+  width: 264px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0px 16px;
+  position: absolute;
+  top: 158px;
+  left: 0;
+}
+
+.financial-wallet .sidebar-item {
+  display: flex;
+  width: 232px;
+  align-items: flex-start;
+  gap: 110px;
+  padding: 12px 8px 12px 16px;
+  position: relative;
+  flex: 0 0 auto;
+  border-radius: var(--style-button);
+}
+
+.financial-wallet .text-wrapper-22 {
+  position: relative;
+  width: fit-content;
+  font-family: "DM Sans", Helvetica;
+  font-weight: 400;
+  color: #616161;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.financial-wallet .sidebar-item-2 {
+  display: flex;
+  width: 232px;
+  align-items: flex-start;
+  gap: 110px;
+  padding: 12px 8px 12px 16px;
+  position: relative;
+  flex: 0 0 auto;
+  border-radius: var(--style-button);
+  /* border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-color: #7314ee80; */
+}
+
+.financial-wallet .wallet {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  top: 2px;
+  left: 1px;
+}
+
+.financial-wallet .logo-section {
+  display: flex;
+  flex-direction: column;
+  width: 264px;
+  height: 110px;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 8px;
+  padding: 0px 24px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.financial-wallet .tradesphere-by-moses {
+  position: relative;
+  width: fit-content;
+  font-family: "League Spartan", Helvetica;
+  font-weight: 700;
+  color: #ba4efb;
+  font-size: 28px;
+  text-align: right;
+  letter-spacing: 0;
+  line-height: 19px;
+}
+
+.financial-wallet .span {
+  font-family: "League Spartan", Helvetica;
+  font-weight: 700;
+  color: #ba4efb;
+  font-size: 28px;
+  letter-spacing: 0;
+  line-height: 19px;
+}
+
+.financial-wallet .text-wrapper-23 {
+  font-size: 12px;
+}
+
+.financial-wallet .ellipse-3 {
+  position: absolute;
+  width: 254px;
+  height: 254px;
+  top: 530px;
+  left: 0;
+  background-color: #5d2567b2;
+  border-radius: 127px;
+  filter: blur(241.16px);
+  mix-blend-mode: exclusion;
+}

@@ -1,0 +1,41 @@
+:root {
+  --grey-500: rgba(127, 120, 136, 1);
+  --grey-300: rgba(174, 171, 179, 1);
+  --indicator-font-family: "Poppins", Helvetica;
+  --indicator-font-weight: 600;
+  --indicator-font-size: 12px;
+  --indicator-letter-spacing: 0px;
+  --indicator-line-height: 12px;
+  --indicator-font-style: normal;
+  --prices-font-family: "Poppins", Helvetica;
+  --prices-font-weight: 600;
+  --prices-font-size: 12px;
+  --prices-letter-spacing: -0.6px;
+  --prices-line-height: 12px;
+  --prices-font-style: normal;
+  --style-button: 8px;
+}
+
+/*
+
+To enable a theme in your HTML, simply add one of the following data attributes to an HTML element, like so:
+
+<body data-style-mode="semi-rounded">
+    <!-- the rest of your content -->
+</body>
+
+You can apply the theme on any DOM node, not just the `body`
+
+*/
+
+[data-style-mode="semi-rounded"] {
+  --style-button: 8px;
+}
+
+[data-style-mode="rounded"] {
+  --style-button: 360px;
+}
+
+[data-style-mode="sharp"] {
+  --style-button: 0px;
+}

@@ -1,0 +1,55 @@
+:root {
+  --grey-300: rgba(174, 171, 179, 1);
+  --green-500: rgba(0, 165, 67, 1);
+  --white: rgba(252, 252, 252, 1);
+  --grey-100: rgba(200, 200, 200, 1);
+  --grey-500: rgba(127, 120, 136, 1);
+  --primary: rgba(115, 20, 238, 1);
+  --black-10: rgba(0, 0, 0, 0.1);
+  --grey-50: rgba(229, 229, 229, 1);
+  --grey-900: rgba(18, 17, 18, 1);
+  --grey-700: rgba(73, 68, 79, 1);
+  --indicator-font-family: "Poppins", Helvetica;
+  --indicator-font-weight: 600;
+  --indicator-font-size: 12px;
+  --indicator-letter-spacing: 0px;
+  --indicator-line-height: 12px;
+  --indicator-font-style: normal;
+  --paragraph-font-family: "Poppins", Helvetica;
+  --paragraph-font-weight: 500;
+  --paragraph-font-size: 12px;
+  --paragraph-letter-spacing: 0px;
+  --paragraph-line-height: 16px;
+  --paragraph-font-style: normal;
+  --abbreviation-font-family: "Poppins", Helvetica;
+  --abbreviation-font-weight: 600;
+  --abbreviation-font-size: 14px;
+  --abbreviation-letter-spacing: -0.7px;
+  --abbreviation-line-height: 18px;
+  --abbreviation-font-style: normal;
+  --style-button: 8px;
+}
+
+/*
+
+To enable a theme in your HTML, simply add one of the following data attributes to an HTML element, like so:
+
+<body data-style-mode="semi-rounded">
+    <!-- the rest of your content -->
+</body>
+
+You can apply the theme on any DOM node, not just the `body`
+
+*/
+
+[data-style-mode="semi-rounded"] {
+  --style-button: 8px;
+}
+
+[data-style-mode="rounded"] {
+  --style-button: 360px;
+}
+
+[data-style-mode="sharp"] {
+  --style-button: 0px;
+}

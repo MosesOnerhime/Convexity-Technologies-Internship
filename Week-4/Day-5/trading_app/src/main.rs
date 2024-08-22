@@ -24,13 +24,13 @@ async fn main() -> std::io::Result<()> {
                     .secure(false),
             ))
             .service(fs::Files::new("/static", "./static").show_files_listing()) // Serve static files
-            .route("/home", web::get().to(controllers::home_form))
+            .route("/dashboard", web::get().to(controllers::dashboard_form))
             .route("/", web::get().to(controllers::login_form))
             .route("/login", web::post().to(controllers::login_process))
             .route("/create_user", web::get().to(controllers::create_user_form))
             .route("/create_user_process", web::post().to(controllers::create_user_process))
-            .route("/trading", web::get().to(controllers::trading_form))
-            .route("/trade", web::post().to(controllers::trade_process))
+            .route("/market", web::get().to(controllers::market_form))
+            .route("/market_process", web::post().to(controllers::market_process))
             .route("/order_history", web::get().to(controllers::order_history))
             .route("/check_balance", web::get().to(controllers::check_balance))  // New route for checking balance
     })
