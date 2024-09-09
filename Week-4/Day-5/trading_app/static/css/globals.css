@@ -36,8 +36,41 @@ button.menu {
   transition: background-color 0.3s ease; /* Smooth background transition */
 }
 
+button.menu.main {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+  background-color: #0F1519;
+  border-radius: 8px;
+}
+
+button.menu.main2 {
+  display: flex;
+  width: 186px;
+  height: 26px;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  position: relative;
+  background-color: #0F1519;
+  border-radius: 8px;
+}
+
 button.menu:hover {
   background-color: #ff0eeb; /* Change background on hover */
+}
+
+/* Effect when the button is clicked */
+button.menu:active {
+  /* background-color: #0D1216;  */
+  transform: scale(0.98); 
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); 
 }
 
 button.menu .fi-sr-home {
@@ -53,4 +86,29 @@ button.menu .home {
   font-size: 16px; /* Adjust text size */
   font-weight: bold; /* Make text bold */
   color: #333; /* Text color */
+}
+
+button.tab {
+  all: unset;
+  cursor: pointer;
+  box-sizing: border-box;
+  position: relative;
+  width: fit-content;
+  margin-top: -2px;
+  font-family: "Poppins", Helvetica;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+button.tab:hover {
+  color: #ff0eeb; /* Change background on hover */
+}
+
+button.tab:active {
+  transform: scale(0.98); 
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); 
 }

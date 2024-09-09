@@ -31,6 +31,7 @@ async fn main() -> std::io::Result<()> {
             .route("/create_user_process", web::post().to(controllers::create_user_process))
             .route("/market", web::get().to(controllers::market_form))
             .route("/market_process", web::post().to(controllers::market_process))
+            .route("/market_price", web::post().to(controllers::get_price))
             .route("/order_history", web::get().to(controllers::order_history))
             .route("/check_balance", web::get().to(controllers::check_balance))  // New route for checking balance
     })

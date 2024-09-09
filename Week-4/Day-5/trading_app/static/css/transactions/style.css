@@ -138,7 +138,7 @@
 .financial .frame-4 {
   display: flex;
   flex-direction: column;
-  height: 396px;
+  /* height: 396px; */
   align-items: flex-start;
   gap: 8px;
   padding: 16px 24px;
@@ -217,7 +217,7 @@
   display: flex;
   flex-direction: column;
   width: 128px;
-  height: 340px;
+  /* height: 340px; */
   align-items: flex-start;
   padding: 0px 16px;
   position: relative;
@@ -261,7 +261,7 @@
 .financial .frame-10 {
   display: flex;
   flex-direction: column;
-  height: 340px;
+  /* height: 340px; */
   align-items: center;
   padding: 0px 16px;
   position: relative;
@@ -308,7 +308,7 @@
   display: flex;
   flex-direction: column;
   width: 174px;
-  height: 340px;
+  /* height: 340px; */
   align-items: flex-end;
   padding: 0px 16px;
   position: relative;
@@ -353,7 +353,7 @@
 .financial .frame-14 {
   display: flex;
   flex-direction: column;
-  height: 340px;
+  /* height: 340px; */
   align-items: flex-end;
   padding: 0px 16px;
   position: relative;
@@ -404,7 +404,7 @@
 }
 
 .financial .overlap-2 {
-  position: relative;
+  position: fixed;
   height: 896px;
 }
 
@@ -515,7 +515,7 @@
 }
 
 .financial .ellipse-3 {
-  position: absolute;
+  position: fixed;
   width: 254px;
   height: 254px;
   top: 530px;

@@ -1,6 +1,6 @@
-body {
+/* body {
   background-color: #0e1519;
-}
+} */
 
 .financial-market {
   background-color: #0e1519;
@@ -142,7 +142,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 800px;
-  height: 862px;
+  /* height: 862px; */
   align-items: flex-start;
   justify-content: center;
   gap: 24px;
@@ -531,7 +531,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 328px;
-  height: 661px;
+  /* height: 700px; */
   align-items: flex-start;
   gap: 36px;
   padding: 24px;
@@ -560,7 +560,7 @@ body {
   flex-grow: 1;
   border-bottom-width: 2px;
   border-bottom-style: solid;
-  border-color: var(--primary);
+  border-color: rgb(115 20 238 / 41%);
 }
 
 .financial-market .button {
@@ -594,7 +594,7 @@ body {
 .financial-market .frame-14 {
   display: flex;
   flex-direction: column;
-  height: 437px;
+  /* height: 100%; */
   align-items: center;
   gap: 24px;
   position: relative;
@@ -605,7 +605,7 @@ body {
 .financial-market .frame-15 {
   display: flex;
   flex-direction: column;
-  height: 204px;
+  height: 100%;
   align-items: center;
   justify-content: center;
   gap: 24px;
@@ -669,7 +669,7 @@ body {
 .financial-market .frame-16 {
   display: flex;
   flex-direction: column;
-  height: 217px;
+  height: 100%;
   align-items: center;
   justify-content: center;
   gap: 24px;
@@ -698,6 +698,12 @@ body {
   position: relative;
   flex: 0 0 auto;
 }
+
+/* .financial-market .txt::placeholder {
+  color: #ffffff;
+  opacity: 1;
+} */
+
 
 .financial-market .text-wrapper-13 {
   position: relative;
@@ -1218,7 +1224,7 @@ body {
 }
 
 .financial-market .overlap-4 {
-  position: relative;
+  position: fixed;
   height: 896px;
 }
 
@@ -1257,14 +1263,14 @@ body {
 
 .financial-market .text-wrapper-31 {
   position: relative;
-  width: fit-content;
+  width: 58px;
   font-family: "DM Sans", Helvetica;
-  font-weight: 400;
-  color: #616161;
-  font-size: 14px;
+  font-weight: 700;
+  color: #a6a6a6;
+  font-size: 12px;
+  text-align: center;
   letter-spacing: 0;
   line-height: 20px;
-  white-space: nowrap;
 }
 
 .financial-market .wallet {
@@ -1329,7 +1335,7 @@ body {
 }
 
 .financial-market .ellipse-3 {
-  position: absolute;
+  position: fixed;
   width: 254px;
   height: 254px;
   top: 530px;
@@ -1356,7 +1362,7 @@ body {
   font-weight: 400;
   font-size: 11px;
   letter-spacing: 0;
-  line-height: 16px;
+  /* line-height: 16px; */
   white-space: nowrap;
 }
 
@@ -1374,7 +1380,7 @@ body {
   color: #ffffff;
   font-size: 11px;
   letter-spacing: 0;
-  line-height: 16px;
+  /* line-height: 16px; */
   white-space: nowrap;
 }
 
@@ -1396,3 +1402,47 @@ input[type="number"] {
     outline: none; /* Remove outline on focus */
 }
 
+p {
+  text-align: justify;
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+label {
+  font-family: "Poppins", Helvetica;
+  color: white;
+}
+
+select {
+  border-radius: 5px;
+  width: 15px;
+}
+
+.order-info {
+  all: unset;
+  font-family: "Poppins", Helvetica;
+}
+
+.frame-order-info {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 11px;
+  position: relative;
+}
+
+.frame-order-info .quantity-price-per {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin-top: -1px;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 25px;
+}
