@@ -9,22 +9,23 @@
     <link rel="stylesheet" href="/static/css/market/style.css" />
     <script>
       window.onload = function() {
-          // Initialize the display
-          document.getElementById('sell-tab').style.display = 'none';
-          // document.getElementById('buy-tab').style.display = 'none';
+        // Initialize the display
+        document.getElementById('sell-tab').style.display = 'none';
+        // document.getElementById('buy-tab').style.display = 'none';
 
-          // Add event listeners to toggle between tabs
-          document.getElementById('buy-tab-button').addEventListener('click', function() {
-              document.getElementById('buy-tab').style.display = 'block';
-              document.getElementById('sell-tab').style.display = 'none';
-          });
+        // Add event listeners to toggle between tabs
+        document.getElementById('buy-tab-button').addEventListener('click', function() {
+            document.getElementById('buy-tab').style.display = 'block';
+            document.getElementById('sell-tab').style.display = 'none';
+        });
 
-          document.getElementById('sell-tab-button').addEventListener('click', function() {
-              document.getElementById('buy-tab').style.display = 'none';
-              document.getElementById('sell-tab').style.display = 'block';
-          });
+        document.getElementById('sell-tab-button').addEventListener('click', function() {
+            document.getElementById('buy-tab').style.display = 'none';
+            document.getElementById('sell-tab').style.display = 'block';
+        });
       }
-  </script>
+    </script>
+
   </head>
   <body>
     <div class="financial-market">

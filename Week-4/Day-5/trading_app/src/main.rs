@@ -34,6 +34,7 @@ async fn main() -> std::io::Result<()> {
             .route("/market_price", web::post().to(controllers::get_price))
             .route("/order_history", web::get().to(controllers::order_history))
             .route("/check_balance", web::get().to(controllers::check_balance))  // New route for checking balance
+            .route("/stock-data", web::get().to(controllers::stock_data)) // serving stock data
     })
     .bind("127.0.0.1:8081")?
     .run()

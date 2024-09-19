@@ -4,6 +4,8 @@ use actix_web::{web, HttpResponse, Responder};
 use serde::Deserialize;
 use tera::{Tera, Context};
 use crate::db::DbPool;
+// use reqwest::Client;
+
 
 #[derive(Debug, Deserialize)]
 pub struct LoginForm {
@@ -25,7 +27,7 @@ pub struct MarketForm {
 }
 
 pub async fn dashboard_form(tera: web::Data<Tera>) -> impl Responder {
-    let s = tera.render("dashboard.html", &Context::new()).unwrap();
+    let s = tera.render("index.html", &Context::new()).unwrap();
     HttpResponse::Ok().content_type("text/html").body(s)
 }
 
@@ -301,6 +303,7 @@ pub async fn get_price(
 //     }
 // }
 
+
 pub async fn market_process(
     form: web::Form<MarketForm>, 
     tera: web::Data<Tera>,
@@ -482,3 +485,29 @@ pub async fn place_sell_order(
     }
 }
 */
+
+
+// Function to return stock data as JSON
+pub async fn stock_data(form: web::Query<MarketForm>) -> impl Responder {
+    let api_key = "HX7K0WCKTZZ1KEJY";
+    let symbol = &form.symbol;
+    let url = format!("https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol={}&interval=1min&apikey={}", symbol, api_key);
+
+    // API call to Alpha Vantage
+    let response = match reqwest::get(&url).await {
+        Ok(resp) => match resp.json::<serde_json::Value>().await {
+            Ok(json) => Some(json),
+            Err(_) => None,
+        },
+        Err(_) => None,
+    };
+
+    if let Some(response) = response {
+        // Return the relevant time series data (adjust this based on actual structure)
+        if let Some(time_series) = response["Time Series (1min)"].as_object() {
+            return HttpResponse::Ok().json(time_series);
+        }
+    }
+
+    HttpResponse::InternalServerError().json("Failed to fetch stock data")
+}
