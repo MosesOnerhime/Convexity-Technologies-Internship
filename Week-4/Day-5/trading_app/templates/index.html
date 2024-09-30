@@ -1,11 +1,9 @@
-<!-- index.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stock Prices</title>
+    <title>Real-Time Stock Prices</title>
     <link rel="stylesheet" href="style.css">
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -13,34 +11,47 @@
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
 
+      let stockData = [
+        ['Date', 'Stock Price'],
+        ['2023', 200]
+      ];
+
       function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Date', 'Stock A', 'Stock B'],  // Changed the column names
-          ['2020',  120,      130],
-          ['2021',  150,      140],
-          ['2022',  170,      160],
-          ['2023',  200,      180],
-          ['2024',  220,      190]
-        ]);
+        var data = google.visualization.arrayToDataTable(stockData);
 
         var options = {
-          title: 'Stock Prices Over Time',
+          title: 'Real-Time Stock Prices',
+          hAxis: { title: 'Time' },
+          vAxis: { title: 'Price (USD)' },
           legend: { position: 'bottom' },
-          curveType: 'function',  // Smooth the curve if needed
-          hAxis: {
-              title: 'Year'  // Label for the horizontal axis
-          },
-          vAxis: {
-              title: 'Stock Price (USD)'  // Label for the vertical axis
-          }
+          curveType: 'function'
         };
 
         var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-
         chart.draw(data, options);
       }
-    </script>
 
+      // Connect to the WebSocket
+      const ws = new WebSocket('ws://localhost:8081/ws/');
+
+      ws.onmessage = function(event) {
+        const stockUpdate = JSON.parse(event.data);
+        const currentTime = new Date().toLocaleTimeString();
+
+        // Update the stock data array
+        stockData.push([currentTime, parseFloat(stockUpdate.price)]);
+
+        if (stockData.length > 10) {
+          stockData.shift();  // Remove the oldest data point to keep the chart size manageable
+        }
+
+        drawChart();  // Redraw the chart with new data
+      };
+
+      ws.onclose = function() {
+        console.log("WebSocket connection closed");
+      };
+    </script>
 </head>
 <body>
 
